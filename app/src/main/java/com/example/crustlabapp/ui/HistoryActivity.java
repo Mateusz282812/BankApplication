@@ -13,6 +13,7 @@ import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -27,8 +28,8 @@ import com.example.crustlabapp.RecyclerAdapter;
 import com.example.crustlabapp.SharedPreferencesHelper;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
-import java.util.HashSet;
 import java.util.List;
 
 public class HistoryActivity extends AppCompatActivity {
@@ -90,8 +91,8 @@ public class HistoryActivity extends AppCompatActivity {
         String actualDate = DateFormatHelper.getActualDate();
         startDateButton.setText(actualDate);
         endDateButton.setText(actualDate);
-        startDateButton.setOnClickListener(v -> getCalendarAlertDialog(startDateButton));
-        endDateButton.setOnClickListener(v -> getCalendarAlertDialog(endDateButton));
+        startDateButton.setOnClickListener(v -> getCalendarAlertDialog(true, startDateButton.getText().toString(), endDateButton.getText().toString(), startDateButton));
+        endDateButton.setOnClickListener(v -> getCalendarAlertDialog(false, startDateButton.getText().toString(), endDateButton.getText().toString(),endDateButton));
 
         builder.setView(view);
         AlertDialog alertDialog = builder.create();
@@ -131,7 +132,7 @@ public class HistoryActivity extends AppCompatActivity {
                 }
                 TransactionData filterData = new TransactionData();
                 for (int position = 1; position <= positionList.size(); position++) {
-                    Integer pos = positionList.get(position-1) - 1;
+                    int pos = positionList.get(position-1) - 1;
                     filterData.id.add(position);
                     filterData.amount.add(transactionData.amount.get(pos));
                     filterData.recipient.add(transactionData.recipient.get(pos));
@@ -166,15 +167,32 @@ public class HistoryActivity extends AppCompatActivity {
         spinner.setSelection(spinnerPosition);
     }
 
-    private void getCalendarAlertDialog(Button button) {
+    private void getCalendarAlertDialog(Boolean isStartDate, String startDateString, String endDateString, Button button) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View view = inflater.inflate(R.layout.alertdialog_calendar, null);
         DatePicker datePicker = view.findViewById(R.id.datePickerCalendarAlertDialog);
+        Date startDate = DateFormatHelper.getDateAndTimeOfStringDate(startDateString + " 00:00:00");
+        Date endDate = DateFormatHelper.getDateAndTimeOfStringDate(endDateString + " 23:59:59");
+        datePicker.setMaxDate(Calendar.getInstance().getTime().getTime());
         builder.setView(view).setCancelable(false)
                 .setPositiveButton("Ok", (dialogInterface, i) -> {
-                    button.setText(DateFormatHelper.getDateFromDatePicker(datePicker));
-                    dialogInterface.dismiss();
+                    Date date = DateFormatHelper.getDateFromDatePicker(datePicker);
+                    if (isStartDate) {
+                        if(date.before(endDate)) {
+                            button.setText(DateFormatHelper.getStringDateOfDate(date));
+                            dialogInterface.dismiss();
+                        }else {
+                            Toast.makeText(this, "Start date cannot be after end date", Toast.LENGTH_SHORT).show();
+                        }
+                    }else {
+                        if(date.after(startDate)) {
+                            button.setText(DateFormatHelper.getStringDateOfDate(date));
+                            dialogInterface.dismiss();
+                        }else {
+                            Toast.makeText(this, "End date cannot be before start date", Toast.LENGTH_SHORT).show();
+                        }
+                    }
                 })
                 .create().show();
     }

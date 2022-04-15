@@ -50,7 +50,7 @@
                     android:layout_weight="1"
                     android:background="@drawable/round_blue_gradient"
                     android:text="@string/withdrawal_n_cash"
-                    android:textSize="11sp" />
+                    android:textSize="10sp" />
 
                 <Button
                     android:id="@+id/transferBtnPaymentsFragment"
@@ -62,7 +62,7 @@
                     android:layout_weight="1"
                     android:background="@drawable/round_blue_gradient"
                     android:text="@string/transfer"
-                    android:textSize="11sp" />
+                    android:textSize="10sp" />
 
                 <Button
                     android:id="@+id/exchangeBtnPaymentsFragment"
@@ -74,7 +74,7 @@
                     android:layout_weight="1"
                     android:background="@drawable/round_blue_gradient"
                     android:text="@string/exchange_n"
-                    android:textSize="11sp" />
+                    android:textSize="10sp" />
 
                 <Button
                     android:id="@+id/depositBtnPaymentsFragment"
@@ -83,7 +83,7 @@
                     android:layout_weight="1"
                     android:background="@drawable/round_blue_gradient"
                     android:text="@string/deposit_n_cash"
-                    android:textSize="11sp" />
+                    android:textSize="10sp" />
             </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

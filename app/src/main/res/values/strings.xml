@@ -26,9 +26,9 @@
     <string name="exchange_n">Exchange</string>
     <string name="deposit_n_cash">Deposit\n cash</string>
     <string name="withdraw">Withdraw</string>
-    <string name="withdrawal_money">Withdrawal money</string>
+    <string name="withdrawal_money">Withdrawal cash</string>
     <string name="deposit">Deposit</string>
-    <string name="deposit_money">Deposit money</string>
+    <string name="deposit_money">Deposit cash</string>
     <string name="exchange_money">Exchange money</string>
     <string name="send">Send</string>
     <string name="title">Title</string>
