@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/round_button"
+    android:backgroundTint="@color/transparent">
+
+    <TextView
+        android:id="@+id/titleHistoryAlertDialog"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:text="@string/filter_history"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/line1"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/grey"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleHistoryAlertDialog" />
+
+    <RadioGroup
+        android:id="@+id/RadioGroupHistoryAlertDialog"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/line1">
+
+        <RadioButton
+            android:id="@+id/TypeOperationRadioBtn"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/type_operation" />
+
+        <Spinner
+            android:id="@+id/TypeOperationSpinnerHistoryAlertDialog"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:background="@android:drawable/btn_dropdown"
+            android:spinnerMode="dropdown" />
+
+        <RadioButton
+            android:id="@+id/DateOperationRadioBtn"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/date_operation" />
+
+        <LinearLayout
+            android:id="@+id/DateOperationLayoutHistoryAlertDialog"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:visibility="gone"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/StartDateHistoryAlertDialog"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="20dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/grey"
+                android:drawableEnd="@drawable/ic_calendar"
+                android:textColor="@color/black" />
+
+            <Button
+                android:id="@+id/EndDateHistoryAlertDialog"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="20dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/grey"
+                android:drawableEnd="@drawable/ic_calendar"
+                android:textColor="@color/black" />
+        </LinearLayout>
+
+        <RadioButton
+            android:id="@+id/CurrencyRadioBtn"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/currency" />
+
+        <Spinner
+            android:id="@+id/CurrencySpinnerHistoryAlertDialog"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:visibility="gone"
+            android:background="@android:drawable/btn_dropdown"
+            android:spinnerMode="dropdown" />
+
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/FilterBtnHistoryAlertDialog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="@color/blue"
+        android:text="@string/filter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/RadioGroupHistoryAlertDialog" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

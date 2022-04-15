@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">CrustLabApp</string>
+    <string name="title_home">Start</string>
+    <string name="title_transfer">Payments</string>
+    <string name="user_id">User ID</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="history">History</string>
+    <string name="currency">Currency</string>
+    <string name="transaction_type">Transaction type</string>
+    <string name="balance">Balance</string>
+    <string name="description">Description</string>
+    <string name="recipient_id">Recipient id</string>
+    <string name="amount">Amount</string>
+    <string name="date">Date</string>
+    <string name="information">Information</string>
+    <string name="transfer">Transfer</string>
+    <string name="HomeBalanceTitle">Bank account balance</string>
+    <string name="filter">Filter</string>
+    <string name="date_operation">Date operation</string>
+    <string name="type_operation">Type operation</string>
+    <string name="filter_history">Filter history</string>
+    <string name="withdrawal_n_cash">Withdrawal\n cash</string>
+    <string name="exchange_n">Exchange</string>
+    <string name="deposit_n_cash">Deposit\n cash</string>
+    <string name="withdraw">Withdraw</string>
+    <string name="withdrawal_money">Withdrawal money</string>
+    <string name="deposit">Deposit</string>
+    <string name="deposit_money">Deposit money</string>
+    <string name="exchange_money">Exchange money</string>
+    <string name="send">Send</string>
+    <string name="title">Title</string>
+    <string name="recipient_name">Recipient name</string>
+    <string name="transfer_money">Transfer money</string>
+</resources>
