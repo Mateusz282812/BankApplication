@@ -11,6 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -93,16 +94,21 @@ public class ExchangeMoneyFragment extends Fragment implements AdapterView.OnIte
     }
 
     private void exchangeMoney() {
+        String setCurrency = setCurrencySpinner.getItemAtPosition(setCurrencySpinner.getSelectedItemPosition()).toString();
+        if (!setCurrency.equals(actualCurrency)){
         actualBalance = Double.parseDouble( setBalanceTextView.getText().toString().replace(',','.'));
         actualBalance = actualBalance - (actualBalance * MainActivity.Provision);
-        String actualCurrency = setCurrencySpinner.getItemAtPosition(setCurrencySpinner.getSelectedItemPosition()).toString();
         SharedPreferences.Editor editor = SharedPreferencesHelper.getSharedPreferencesEditor(context);
         editor.putString("actualBalance", String.valueOf(actualBalance))
-                .putString("actualCurrency", actualCurrency)
+                .putString("actualCurrency", setCurrency)
                 .apply();
         String actualData = DateFormatHelper.getActualDateAndTime();
         dbHandler.addNewTransaction(actualData, actualBalance, userID, " MONEY EXCHANGE", actualBalance, UploadTransaction.TRANSACTION_EXCHANGE, actualCurrency);
         OpenFragment.openFragment(getActivity(), PaymentsFragment.newInstance(), MainActivity.ID_CONTAINER);
+        }else {
+            Toast.makeText(context, "Change currency",Toast.LENGTH_SHORT).show();
+        }
+
     }
 
     @Override
