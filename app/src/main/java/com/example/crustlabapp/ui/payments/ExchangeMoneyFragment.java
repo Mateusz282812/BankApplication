@@ -74,7 +74,7 @@ public class ExchangeMoneyFragment extends Fragment implements AdapterView.OnIte
         setCurrencySpinner.setOnItemSelectedListener(this);
         actualCurrencySpinner.setEnabled(false);
         actualCurrencySpinner.setClickable(false);
-        actualBalanceTextView.setText(String.valueOf(actualBalance));
+        actualBalanceTextView.setText(formatDouble(actualBalance));
         exchangeButton.setOnClickListener(v -> exchangeMoney());
     }
 
@@ -161,6 +161,6 @@ public class ExchangeMoneyFragment extends Fragment implements AdapterView.OnIte
     }
 
     private String formatDouble(double number){
-        return String.format("%.2f", number);
+        return String.format("%.2f", number).replace(',','.');
     }
 }
