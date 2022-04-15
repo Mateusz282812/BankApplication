@@ -34,27 +34,17 @@ public class DateFormatHelper {
         return date;
     }
 
-    public static Date getDateOfStringDate(String dateString) {
-        Date date = null;
-        try {
-            date = DateFormat.parse(dateString);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        return date;
+    public static String getStringDateOfDate(Date date) {
+        return DateFormat.format(date);
     }
 
-    public static String getStringDateAndTimeOfDate(Date date) {
-        return DateAndTimeFormat.format(date);
-    }
-
-    public static String getDateFromDatePicker(DatePicker datePicker){
+    public static Date getDateFromDatePicker(DatePicker datePicker){
         int day = datePicker.getDayOfMonth();
         int month = datePicker.getMonth();
         int year =  datePicker.getYear();
 
         Calendar calendar = Calendar.getInstance();
         calendar.set(year, month, day);
-        return DateFormat.format(calendar.getTime());
+        return calendar.getTime();
     }
 }
